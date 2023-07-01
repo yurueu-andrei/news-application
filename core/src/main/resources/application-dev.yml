@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/news
+    username: news
+    password: secret_news
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  liquibase:
+    change-log: classpath:databases/news/changelog.xml
+cache:
+  algorithm: LFU
+  size: 64
+client:
+  baseUrl: localhost:8081
