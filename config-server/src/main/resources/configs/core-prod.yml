@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-news:5432/news
+    username: news
+    password: secret_news
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:databases/news/changelog.xml
+  data:
+    redis:
+      host: redis-news
+      port: 6379
+client:
+  baseUrl: users-app:8081

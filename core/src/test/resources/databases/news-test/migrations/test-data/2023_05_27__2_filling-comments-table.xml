@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="andrei.yurueu1@gmail.com" context="test_data">
+        <comment>Fill the table "comments" with test data</comment>
+        <sql>
+            INSERT INTO comments(text, username, create_date, news_id)
+            values ('very cool news', 'dobrowydka', '2023-04-02 22:17:07.319', 1),
+                   ('wow, that was very interesting', 'nst.yrk', '2023-04-12 15:13:07.319', 2),
+                   ('very exiting news', 'dobrowydka', '2023-04-22 19:56:07.319', 3),
+                   ('good job!', 'nst.yrk', '2023-04-02 18:40:07.319', 1),
+                   ('well done', 'dobrowydka', '2023-04-12 20:20:07.319', 5),
+                   ('amazing article', 'over1337', '2023-04-17 11:55:07.319', 4),
+                   ('what a beautiful photos', 'alperal', '2023-04-10 13:14:07.319', 9),
+                   ('information is clear and actual', 'over1337', '2023-04-26 11:30:07.319', 8),
+                   ('i recommend to study this material', 'shos', '2023-04-28 22:50:07.319', 7),
+                   ('this article is misinformation', 'nst.yrk', '2023-04-19 02:11:07.319', 6)
+        </sql>
+    </changeSet>
+</databaseChangeLog>

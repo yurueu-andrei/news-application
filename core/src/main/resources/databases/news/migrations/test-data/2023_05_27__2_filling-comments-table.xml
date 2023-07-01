@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="andrei.yurueu1@gmail.com" context="data">
+        <comment>Fill the table "comments" with test data</comment>
+        <sql>
+            WITH series AS (SELECT generate_series(1, 200) AS sery)
+
+            INSERT
+            INTO comments(text, username, create_date, news_id)
+            SELECT CASE
+                       WHEN s.sery % 5 = 0 then 'WOOOW ' || s.sery
+                       WHEN s.sery % 4 = 0 then 'Cool :) ' || s.sery
+                       WHEN s.sery % 3 = 0 then 'Amazing. ' || s.sery
+                       WHEN s.sery % 2 = 0 then 'Well done! ' || s.sery
+                       ELSE 'I dont like it(( ' || s.sery
+                       END,
+                   CASE
+                       WHEN s.sery % 5 = 0 then 'dobrowydka'
+                       WHEN s.sery % 4 = 0 then 'nst.yrk'
+                       WHEN s.sery % 2 = 0 then 'yaros1337'
+                       ELSE 'idprodark'
+                       END,
+                   ('2023-05-01 00:00:00.000'::TIMESTAMP + (FLOOR(RANDOM() * 30) + 1)::INTEGER * INTERVAL '1 DAY' +
+                (FLOOR(RANDOM() * 24))::INTEGER * INTERVAL '1 HOUR' +
+                (FLOOR(RANDOM() * 60))::INTEGER * INTERVAL '1 MINUTE' +
+                (FLOOR(RANDOM() * 60))::INTEGER * INTERVAL '1 SECOND' +
+                (FLOOR(RANDOM() * 60))::INTEGER * INTERVAL '1 MILLISECOND' +
+                (FLOOR(RANDOM() * 1000))::INTEGER * INTERVAL '1 MICROSECOND'),
+                   (CEIL(s.sery / 34.0::FLOAT)::INTEGER)
+            FROM series s
+        </sql>
+    </changeSet>
+</databaseChangeLog>

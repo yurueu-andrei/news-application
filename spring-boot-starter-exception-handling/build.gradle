@@ -1,0 +1,59 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'ru.clevertec'
+version = '1.0'
+sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'localRepo'
+            url = "file://${buildDir}/repo"
+        }
+    }
+    publications {
+        myApp(MavenPublication) {
+            groupId = 'ru.clevertec'
+            artifactId = 'exception-handler-starter'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+}
+
+ext {
+    lombokVersion = '1.18.26'
+}
+
+dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:3.1.0"
+
+    implementation 'org.springframework.boot:spring-boot-starter:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.1.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+}
+
+tasks.named("build") {
+    finalizedBy('publishToMavenLocal')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named('compileJava') {
+    inputs.files(tasks.named('processResources'))
+}

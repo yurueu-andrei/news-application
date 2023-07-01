@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "spring.logging.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables custom logging.",
+      "defaultValue": "true"
+    }
+  ]
+}

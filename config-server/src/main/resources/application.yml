@@ -1,0 +1,10 @@
+server:
+  port: 9090
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+  profiles:
+    active: native

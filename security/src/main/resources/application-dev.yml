@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5433/users
+    username: users
+    password: secret_users
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  liquibase:
+    change-log: classpath:databases/users/changelog.xml
+  security:
+    jwt:
+      secret-key: 1111111111111111111111111111111111111111111111111111
+      expiration: 43200000 # 12 hours
+      issuer: andrei
