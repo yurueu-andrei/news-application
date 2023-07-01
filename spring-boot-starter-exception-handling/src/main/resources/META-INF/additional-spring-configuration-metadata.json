@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "spring.exception-handler.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables exception handling.",
+      "defaultValue": "true"
+    }
+  ]
+}
