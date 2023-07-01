@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-users:5432/users
+    username: users
+    password: secret_users
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:databases/users/changelog.xml
+  security:
+    jwt:
+      secret-key: 1111111111111111111111111111111111111111111111111111
+      expiration: 86400000 # 1 day
+      issuer: clevertec
