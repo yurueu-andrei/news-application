@@ -1,0 +1,8 @@
+rootProject.name = 'news'
+
+include 'core'
+include 'security'
+include 'spring-boot-starter-exception-handling'
+include 'spring-boot-starter-logging'
+include 'config-server'
+

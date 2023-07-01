@@ -1,0 +1,86 @@
+services:
+  config-server:
+    image: eclipse-temurin:17-alpine
+    ports:
+      - "9090:9090"
+    container_name: config-server
+    volumes:
+      - ./:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: sh -c "java -jar ./config-server/build/libs/config-server-1.0.jar"
+
+  postgres-news:
+    image: postgis/postgis:10-2.5-alpine
+    ports:
+      - "5432:5432"
+    container_name: postgres-news
+    environment:
+      - POSTGRES_DB=news
+      - POSTGRES_USER=news
+      - POSTGRES_PASSWORD=secret_news
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-users:
+    image: postgis/postgis:10-2.5-alpine
+    ports:
+      - "5433:5432"
+    container_name: postgres-users
+    environment:
+      - POSTGRES_DB=users
+      - POSTGRES_USER=users
+      - POSTGRES_PASSWORD=secret_users
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis-news:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    container_name: redis-news
+    command: redis-server --save 20 1 --loglevel debug
+    restart: no
+
+  news-app:
+    image: eclipse-temurin:17-alpine
+    ports:
+      - "8080:8080"
+    container_name: news-app
+    depends_on:
+      postgres-news:
+        condition: service_healthy
+      redis-news:
+        condition: service_started
+      users-app:
+        condition: service_started
+      config-server:
+        condition: service_started
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    volumes:
+      - ./:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: sh -c "java -jar ./core/build/libs/core-1.0.jar"
+
+  users-app:
+    image: eclipse-temurin:17-alpine
+    ports:
+      - "8081:8081"
+    container_name: users-app
+    depends_on:
+      postgres-users:
+        condition: service_healthy
+      config-server:
+        condition: service_started
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    volumes:
+      - ./:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: sh -c "java -jar ./security/build/libs/security-1.0.jar"
