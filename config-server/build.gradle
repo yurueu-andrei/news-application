@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+}
+
+group = 'ru.clevertec'
+version = '1.0'
+sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-config-server:4.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}
