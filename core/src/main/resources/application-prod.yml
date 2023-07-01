@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: core
+  config:
+    import: configserver:http://config-server:9090

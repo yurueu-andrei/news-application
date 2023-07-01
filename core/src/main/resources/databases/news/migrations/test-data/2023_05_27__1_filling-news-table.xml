@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="andrei.yurueu1@gmail.com" context="data">
+        <comment>Fill the table "news" with test data</comment>
+        <sql>
+            INSERT INTO news(title, text, username, create_date)
+            values ('news crypto title first one', 'text of the first news about crypto', 'over228',
+                    '2023-04-02 17:26:07.319'),
+                   ('news AI title second two', 'text of the second news about AI', 'over228',
+                    '2023-04-12 14:43:07.319'),
+                   ('news Ukraine title third three', 'text of the third news about Ukraine', 'smirnovka123',
+                    '2023-04-22 09:23:07.319'),
+                   ('news AI title fourth four', 'text of the fourth news about AI', 'dobrowydka',
+                    '2023-04-17 11:34:07.319'),
+                   ('news Ukraine title fifth five', 'text of the fifth news about Ukraine', 'smirnovka123',
+                    '2023-04-12 18:55:07.319'),
+                   ('news crypto title sixth six', 'text of the sixth news about crypto', 'nst.yrk',
+                    '2023-04-18 11:23:07.319')
+        </sql>
+    </changeSet>
+</databaseChangeLog>
