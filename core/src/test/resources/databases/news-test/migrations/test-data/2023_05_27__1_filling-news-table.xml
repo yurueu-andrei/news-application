@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="andrei.yurueu1@gmail.com" context="test_data">
+        <comment>Fill the table "news" with test data</comment>
+        <sql>
+            INSERT INTO news(title, text, username, create_date)
+            values ('news crypto title first one', 'text of the first news about crypto', 'username1',
+                    '2023-04-02 17:26:07.319'),
+                   ('news AI title second two', 'text of the second news about AI', 'username2',
+                    '2023-04-12 14:43:07.319'),
+                   ('news Ukraine title third three', 'text of the third news about Ukraine', 'username3',
+                    '2023-04-22 09:23:07.319'),
+                   ('news AI title fourth four', 'text of the fourth news about AI', 'username4',
+                    '2023-04-17 11:34:07.319'),
+                   ('news Ukraine title fifth five', 'text of the fifth news about Ukraine', 'username5',
+                    '2023-04-12 18:55:07.319'),
+                   ('news crypto title sixth six', 'text of the sixth news about crypto', 'username6',
+                    '2023-04-18 11:23:07.319'),
+                   ('news Ukraine title seventh seven', 'text of the seventh news about Ukraine', 'username7',
+                    '2023-04-28 22:34:07.319'),
+                   ('news AI title eighth eight', 'text of the eighth news about AI', 'username8',
+                    '2023-04-25 23:11:07.319'),
+                   ('news Ukraine title ninth nine', 'text of the ninth news about Ukraine', 'username9',
+                    '2023-04-10 05:22:07.319'),
+                   ('news crypto title tenth ten', 'text of the tenth news about crypto', 'username10',
+                    '2023-04-19 01:00:07.319'),
+                   ('news crypto title eleventh eleven', 'text of the eleventh news about crypto', 'username11',
+                    '2023-04-16 16:55:07.319'),
+                   ('news Ukraine title twelfth twelve', 'text of the twelfth news about Ukraine', 'username12',
+                    '2023-04-06 15:26:07.319'),
+                   ('news AI title thirteenth thirteen', 'text of the thirteenth news about AI', 'username13',
+                    '2023-04-09 18:37:07.319'),
+                   ('news AI title fourteenth fourteen', 'text of the fourteenth news about AI', 'username14',
+                    '2023-04-05 06:51:07.319'),
+                   ('news AI title fifteenth fifteen', 'text of the fifteenth news about AI', 'username15',
+                    '2023-04-11 11:19:07.319'),
+                   ('news Ukraine title sixteenth sixteen', 'text of the sixteenth news about Ukraine', 'username16',
+                    '2023-04-24 23:26:07.319'),
+                   ('news crypto title seventeenth seventeen', 'text of the seventeenth news about crypto',
+                    'username17',
+                    '2023-04-18 04:46:07.319'),
+                   ('news Ukraine title eighteenth eighteen', 'text of the eighteenth news about Ukraine', 'username18',
+                    '2023-04-10 07:52:07.319'),
+                   ('news AI title nineteenth nineteen', 'text of the nineteenth news about AI', 'username19',
+                    '2023-04-27 10:23:07.319'),
+                   ('news crypto title twentieth twenty', 'text of the twentieth news about crypto', 'username20',
+                    '2023-04-14 17:54:07.319')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

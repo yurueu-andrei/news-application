@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    username: test
+    password: test
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:databases/news-test/changelog.xml
+client:
+  baseUrl: localhost:8081

@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    username: test
+    password: test
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:databases/users-test/changelog.xml
+  security:
+    jwt:
+      secret-key: TESTkeyTESTkeyTESTkeyTESTkeyTESTkeyTESTkeyTESTkeyTESTkeyTESTkey
+      expiration: 1000
+      issuer: andrei

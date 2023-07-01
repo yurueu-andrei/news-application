@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="andrei.yurueu1@gmail.com" context="data">
+        <comment>Fill the table "users" with test data</comment>
+        <sql>
+            INSERT INTO users(name, surname, username, password, role)
+            values ('Andrei', 'Yurueu', 'dobrowydka', '$2a$10$1thhI4HpguI4pcK4WNTtKeUOl5B1NyLNa2mpuh/yBBf9INlsmRE8q',
+                    'ADMIN'),
+                   ('Anastasija', 'Yurkova', 'nst.yrk', '$2a$10$TNXK/VzytEYAEoRnfsUTN.wARpUocUcdE3SwUJPV8Gnrs7FnWSGl6',
+                    'ADMIN'),
+                   ('Yaroslav', 'Vasilevskii', 'yaros1337',
+                    '$2a$10$6c6KerI0uo46KoMI351TZeVN/5FGAD22aAlrhcDocWTGPeVrCisCm', 'SUBSCRIBER'),
+                   ('Yaroslav', 'Parfenov', 'idprodark', '$2a$10$fXzo.Rhx3HNbNONdE2G/DuwGm3Faapj4ixOUJr4xwfLcSK7OhW/Li',
+                    'SUBSCRIBER'),
+                   ('Oleg', 'Potapenko', 'over228', '$2a$10$rpCfH/yyhb/TkU8NB7YS2eCh9BzJqMgaW1Td76yjQiZfKvtzVvMo6',
+                    'JOURNALIST'),
+                   ('Vladislav', 'Smirnov', 'smirnovka123',
+                    '$2a$10$ffuzRvfES6kTikA6XsmVDuqVCHCXynXMtBci2aBYVaV4xN4IgdHoy', 'JOURNALIST')
+        </sql>
+    </changeSet>
+</databaseChangeLog>
